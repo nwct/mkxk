@@ -1,0 +1,19 @@
+#!/bin/bash
+inputinfo=$1
+inputip=$2
+inputport=$3
+if [ "$inputport" = "" ]; then
+inputport="1824"
+fi
+export http_proxy=http://$inputip:$inputport
+if [ "$inputinfo" = "" ]; then
+cd /root/M_BerryMiner_Ubuntu_v4/
+./script/monitor.sh &
+echo "已启动bcdn矿机"
+else
+echo -ne "$inputinfo" > /root/M_BerryMiner_Ubuntu_v4/conf/code.txt
+echo "已添加挖矿码 $inputinfo"
+cd /root/M_BerryMiner_Ubuntu_v4/
+./script/monitor.sh 1>log.txt 2>log.txt &
+tail -f log.txt
+fi
