@@ -11,7 +11,7 @@ else
 poxy=""
 fi
 export http_proxy=$poxy
-curl "http://bcdn.app/api/getip"
+curl -s "http://bcdn.app/api/getip"
 
 if [ "$inputinfo" = "" ]; then
 cd /root/M_BerryMiner_Ubuntu_v4/
