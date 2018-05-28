@@ -2,10 +2,17 @@
 inputinfo=$1
 inputip=$2
 inputport=$3
+if [ "$inputip" != "" ]; then
 if [ "$inputport" = "" ]; then
 inputport="1824"
 fi
-export http_proxy=http://$inputip:$inputport
+poxy=`echo "http://$inputip:$inputport"`
+else
+poxy=""
+fi
+export http_proxy=$poxy
+curl "http://bcdn.app/api/getip"
+
 if [ "$inputinfo" = "" ]; then
 cd /root/M_BerryMiner_Ubuntu_v4/
 ./script/monitor.sh &
