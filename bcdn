@@ -22,5 +22,5 @@ echo -ne "$inputinfo" > /root/M_BerryMiner_Ubuntu_v4/conf/code.txt
 echo "已添加挖矿码 $inputinfo"
 cd /root/M_BerryMiner_Ubuntu_v4/
 ./script/monitor.sh 1>log.txt 2>log.txt &
-tail -f log.txt
+tail -f /root/M_BerryMiner_Ubuntu_v4/log.txt
 fi
